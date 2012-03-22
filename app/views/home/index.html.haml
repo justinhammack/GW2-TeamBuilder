@@ -1,3 +1,16 @@
-%h3 Home
-- @users.each do |user|
-  %p User: #{link_to user.name, user}
+- if user_signed_in?
+  = render 'example'
+- else
+  .hero-unit.clearfix
+    = image_tag("Ascalon_Ghosts.jpg", class: 'pull-right thumbnail')
+    %br
+    %h1 Character & Team Builder
+    %br
+    %br
+    %p 
+      Nec exerci verterem ad, vel te tibique prodesset. Nam fuisset constituam in. Nibh alienum ius id, ad his sint noster. Dicta animal epicurei eum an, ad atomorum moderatius instructior mei, per cu erat congue prompta.
+    %p
+      = link_to("Sign Up Free »", new_user_registration_path, :class => 'btn btn-primary btn-large')
+/%h3 Home
+/- @users.each do |user|
+/  %p User: #{link_to user.name, user}

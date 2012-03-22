@@ -2,7 +2,7 @@
 @import "twitter/bootstrap/responsive";
 
 // Set the correct sprite paths
-@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconSpritePath: asset-path('glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
 
 // Custom LESS Mixins
@@ -10,6 +10,13 @@
 @textColor:             #DDD;
 @baseFontSize:          16px;
 @baseLineHeight:        20px;
+@linkColor:             #E58F0D;
+@btnPrimaryBackground:  #08c;
+@infoBackground:        darken(#d9edf7, 75%);
+@warningBackground:     darken(#f3edd2, 75%);
+@errorBackground:       darken(#f2dede, 75%);
+@successBackground:     darken(#dff0d8, 75%);
+
 
 // *************************
 // Custom Styling Overrides
@@ -17,14 +24,21 @@
 
 // Elements
 body {
+  background-color: #000;
   background: url('/assets/bg-linen-black.jpg') top left fixed repeat;
   margin-top: 20px;
 }
 p {
   text-shadow: 0 1px 1px #111;
 }
-h1, h2, h3, h4, h5, h6 {
+h1 {
   text-shadow: 0px 3px 5px @grayDark;
+}
+h2, h3, h4, h5, h6 {
+  text-shadow: 0px 2px 2px #111;
+}
+h3 small {
+  font-size: 11px;
 }
 footer {
   p {
@@ -36,6 +50,10 @@ hr {
   border-top: 1px solid #333;
   border-bottom: 1px solid #555;
 }
+label { color: #555; }
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
 // Navigation
 .sidebar-nav {
   font-size: 14px;
@@ -51,6 +69,11 @@ hr {
 .nav-list > li > a, .nav-list .nav-header {
   text-shadow: 0 1px 0 #111;
 }
+.nav-list > .active > a, .nav-list > .active > a:hover {
+  color: grayLighter;
+  background-color: @linkColor;
+  background-color: hsla(hue(@linkColor), saturation(@linkColor), lightness(@linkColor), .1);
+}
 .well {
   background-color: #222;
   background-color: rgba(64,64,64,0.25);
@@ -58,6 +81,42 @@ hr {
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.3);
   box-shadow: 0 1px 2px rgba(0,0,0,.3);
 }
+.well.sidebar-nav {
+  margin-top: 60px;
+}
+.well.swap {
+  background-color: #181929;
+  background-color: rgba(30, 35, 100, 0.25);
+}
+.hero-unit {
+  background-color: #222;
+  background-color: rgba(64,64,64,0.25);
+  h1 { font-size: 50px; }
+  img { margin-right: 20px; }
+}
+
+// Trim
+.alert {
+  text-shadow: 0 1px 1px #111;
+}
+.thumbnail {
+  border: 1px solid #666;
+}
+.page-header {
+  border-bottom: 1px solid #555;
+}
+.sidebar-nav li a small {
+  font-size: 70%;
+  color: #555;
+  text-transform: uppercase;
+}
+.label {
+  color: #EEE;
+  text-shadow: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
 
 
 // *************************
@@ -67,10 +126,10 @@ hr {
 // Header
 .jumbotron {
   h1 {
-    color: #000;
-    text-shadow: 1px 2px 2px #252525;
+    color: #333;
+    text-shadow: 0 1px 2px #111, 0 -1px 1px #555;
     margin-bottom: 9px;
-    font-size: 54px;
+    font-size: 45px;
     font-weight: bold;
     letter-spacing: -1px;
     line-height: 1;
@@ -87,4 +146,21 @@ hr {
     font-size: 20px;
     line-height: 27px;
   }
+}
+
+// Stats Dressing
+p.utility-actions {
+  font-size: 12px;
+}
+.offense {
+  color: #9d261d;
+}
+.defense {
+  color: #46a546;
+}
+.heals {
+  color: #049cdb;
+}
+.modifier {
+  color: #468847;
 }

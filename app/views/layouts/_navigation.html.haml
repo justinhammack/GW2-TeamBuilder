@@ -1,16 +1,56 @@
 %ul.nav.nav-list
-  %li    
-    = link_to(root_path, :class => 'brand') do
+  %li{class: cp(root_path)}
+    = link_to(root_path) do
       %i.icon-home
       Home
-  %li.nav-header
-    Account
   - if user_signed_in?
+    %li.nav-header
+      Teams
     %li
+      = link_to('5v5 Ranked', '#')
+    %li
+      = link_to('5v5 Alts', '#')
+    %li
+      = link_to('Nuke Gimmick', '#')
+    %li
+      = link_to('Griefing Lawls', '#')
+    %li.nav-header
+      Characters
+    %li
+      = link_to('#') do
+        Cenos
+        %small Rog
+    %li
+      = link_to('#') do
+        Poncho
+        %small Grd
+    %li
+      = link_to('#') do
+        Pheelin
+        %small Nec
+    %li
+      = link_to('#') do
+        Aden
+        %small War
+    %li
+      = link_to('#') do
+        Media
+        %small Eng
+    %li
+      = link_to('#') do
+        Leigh
+        %small Rng
+    %li
+      = link_to('#') do
+        Deakon
+        %small Ele
+    %li.nav-header
+      Account
+    %li{class: cp('#')}
       = link_to('#') do
         %i.icon-user
         Friends
-    %li
+    %li{class: cp(edit_user_registration_path)}
       = link_to(edit_user_registration_path) do
         %i.icon-cog
         Settings
@@ -19,11 +59,13 @@
         %i.icon-off
         Logout
   - else
-    %li
+    %li.nav-header      
+      Account
+    %li{class: cp(new_user_registration_path)}
       = link_to(new_user_registration_path) do
         %i.icon-list-alt
         Sign Up
-    %li
+    %li{class: cp(new_user_session_path)}
       = link_to(new_user_session_path) do
         %i.icon-lock
         Login

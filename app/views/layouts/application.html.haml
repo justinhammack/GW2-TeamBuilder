@@ -11,7 +11,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     = yield(:head)
-  %body
+  %body{style: 'background-color: #000'}
     /%header.navbar.navbar-fixed-top
     /  %nav.navbar-inner
     /    .container
@@ -20,23 +20,24 @@
       .container-fluid
         %header.jumbotron.subhead
           %h1
-            Guild Wars 2 Team Builder
+            GW2:Dashboard
             %small [dev build]
-          %p Expect nothing to work and that things will be ugly, like you.. *oh snap!*
+          %p Expect nothing to work and that things may look ugly, like you.. *oh snap!*
         .row-fluid
           .span2
             .well.sidebar-nav
               = render 'layouts/navigation'
           .span10.clearfix
-            - if flash[:notice]
-              .row
+            - if flash
+              .row-fluid
                 .span12
                   - flash.each do |name, msg|
-                    %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+                    %div{:class => "alert alert-#{name == :notice ? "success" : name}"}
                       %a.close{"data-dismiss" => "alert"} ×
                       = msg
             = yield
         %hr
         %footer
           %p
-            &copy; nrml[ddh] 2012
+            &copy; nrml[ddh] 2012. 
+            Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCsoft Corporation.
