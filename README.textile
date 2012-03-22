@@ -10,8 +10,6 @@ h2. Dependencies
 
 This application requires this Ruby on Rails 3.2.2 and Devise, built on Twitter Bootstrap framework.
 
-* "rails":http://rubygems.org/gems/rails
-
 h2. Installing the Application
 
 ...
