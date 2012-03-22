@@ -1,14 +1,29 @@
-= link_to "Gw2 Teambuilder", root_path, :class => 'brand'
-%ul.nav
+%ul.nav.nav-list
+  %li    
+    = link_to(root_path, :class => 'brand') do
+      %i.icon-home
+      Home
+  %li.nav-header
+    Account
   - if user_signed_in?
     %li
-      = link_to('Logout', destroy_user_session_path, :method=>'delete')
+      = link_to('#') do
+        %i.icon-user
+        Friends
+    %li
+      = link_to(edit_user_registration_path) do
+        %i.icon-cog
+        Settings
+    %li
+      = link_to(destroy_user_session_path, :method=>'delete') do
+        %i.icon-off
+        Logout
   - else
     %li
-      = link_to('Login', new_user_session_path)
-  - if user_signed_in?
+      = link_to(new_user_registration_path) do
+        %i.icon-list-alt
+        Sign Up
     %li
-      = link_to('Edit account', edit_user_registration_path)
-  - else
-    %li
-      = link_to('Sign up', new_user_registration_path)
+      = link_to(new_user_session_path) do
+        %i.icon-lock
+        Login

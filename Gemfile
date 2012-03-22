@@ -32,3 +32,6 @@ gem "guard-rails", ">= 0.0.3", :group => :development
 gem "guard-rspec", ">= 0.4.3", :group => :development
 gem "devise", ">= 2.1.0.rc"
 gem "twitter-bootstrap-rails", ">= 2.0.3", :group => :assets
+
+# Replace the server
+gem 'unicorn', '~> 4.2.0'
